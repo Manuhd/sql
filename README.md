@@ -354,3 +354,14 @@ DROP TABLE users;
 * **DROP** → removes table completely
 
 ---
+
+### Find customers with total spend > 10,000 in 2024    
+    
+```
+SELECT customer_id
+FROM orders
+WHERE order_date >= DATE '2024-01-01'
+  AND order_date <  DATE '2025-01-01'
+GROUP BY customer_id
+HAVING SUM(amount) > 10000;
+```
